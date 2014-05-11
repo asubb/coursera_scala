@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="SBT: com.typesafe:config:1.0.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib_managed/jars/com.typesafe/config/config-1.0.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib_managed/docs/com.typesafe/config/config-1.0.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib_managed/srcs/com.typesafe/config/config-1.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
