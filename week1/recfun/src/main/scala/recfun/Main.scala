@@ -118,7 +118,7 @@ object Main {
       } else if (money < 0 || coins.isEmpty) {
         0
       } else {
-        countChange(money - coins.head, coins) + countChange(money, coins.tail)
+        count(money - coins.head, coins) + count(money, coins.tail)
       }
     }
     coins.sortBy(r => (r));
