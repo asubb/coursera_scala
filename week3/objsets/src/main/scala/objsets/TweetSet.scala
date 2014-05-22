@@ -202,10 +202,10 @@ class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet {
 
   override def mostRetweetedAcc(maxTweet: Tweet): Tweet = {
     val max = left.mostRetweetedAcc(right.mostRetweetedAcc(maxTweet));
-    if (maxTweet.retweets < max.retweets) {
-      max
+    if (elem.retweets > max.retweets) {
+      elem
     } else {
-      maxTweet
+      max
     }
   }
 
@@ -250,14 +250,26 @@ object GoogleVsApple {
   val google = List("android", "Android", "galaxy", "Galaxy", "nexus", "Nexus")
   val apple = List("ios", "iOS", "iphone", "iPhone", "ipad", "iPad")
 
-  lazy val googleTweets: TweetSet = ???
-  lazy val appleTweets: TweetSet = ???
+  lazy val googleTweets: TweetSet = {
+    TweetReader.allTweets.filter(tweet => {
+      google.exists(p => {
+        tweet.text.contains(p)
+      })
+    });
+  }
+  lazy val appleTweets: TweetSet = {
+    TweetReader.allTweets.filter(tweet => {
+      apple.exists(p => {
+        tweet.text.contains(p)
+      })
+    });
+  }
 
   /**
    * A list of all tweets mentioning a keyword from either apple or google,
    * sorted by the number of retweets.
    */
-  lazy val trending: TweetList = ???
+  lazy val trending: TweetList = (appleTweets union googleTweets).descendingByRetweet
 }
 
 object Main extends App {

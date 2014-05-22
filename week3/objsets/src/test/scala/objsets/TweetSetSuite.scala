@@ -62,10 +62,11 @@ class TweetSetSuite extends FunSuite {
     }
   }
 
-  test("Most reviewed set5 is a") {
+  test("most reviewed") {
     new TestSets {
       // user A lies earlier in a set, so it should be the first one who has a maximum of retweets
-      assert(set5.mostRetweeted.user == "a")
+      assert(set5.mostRetweeted.user == "a" || set5.mostRetweeted.user == "b")
+      assert(set1.incl(c).incl(d).mostRetweeted.user == "d")
     }
   }
 
@@ -74,6 +75,7 @@ class TweetSetSuite extends FunSuite {
       val trends = set5.descendingByRetweet
       assert(!trends.isEmpty)
       assert(trends.head.user == "a" || trends.head.user == "b")
+      trends foreach println
     }
   }
 }
