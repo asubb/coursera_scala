@@ -1,0 +1,13 @@
+
+.coursera-university-color {
+    color: #7E000C;
+}
+
+a.coursera-university-color {
+    color: #7E000C;
+}
+
+a.coursera-university-color:hover {
+  color: #b10011;
+}
+    
