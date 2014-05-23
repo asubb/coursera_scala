@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="SBT: com.netflix.rxjava:rxjava-scala:0.15.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib_managed/jars/com.netflix.rxjava/rxjava-scala/rxjava-scala-0.15.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib_managed/docs/com.netflix.rxjava/rxjava-scala/rxjava-scala-0.15.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib_managed/srcs/com.netflix.rxjava/rxjava-scala/rxjava-scala-0.15.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -26,9 +26,15 @@ object Huffman {
 
   // Part 1: Basics
 
-  def weight(tree: CodeTree): Int = ??? // tree match ...
+  def weight(tree: CodeTree): Int = tree match {
+    case Fork(left, right, ch, w) => weight(left) + weight(right)
+    case Leaf(char, weight) => weight
+  }
 
-  def chars(tree: CodeTree): List[Char] = ??? // tree match ...
+  def chars(tree: CodeTree): List[Char] = tree match {
+    case Fork(left, right, ch, w) => chars(left) ::: chars(right)
+    case Leaf(char, weight) => List(char)
+  }
 
   def makeCodeTree(left: CodeTree, right: CodeTree) =
     Fork(left, right, chars(left) ::: chars(right), weight(left) + weight(right))
@@ -71,7 +77,27 @@ object Huffman {
    *       println("integer is  : "+ theInt)
    *   }
    */
-  def times(chars: List[Char]): List[(Char, Int)] = ???
+  def times(chars: List[Char]): List[(Char, Int)] = {
+    if (chars.isEmpty) {
+      Nil
+    } else {
+      val res = times(chars.tail)
+
+      def ourEl(p: (Char, Int)): Boolean = p._1 == chars.head
+      def otherEl(p: (Char, Int)): Boolean = p._1 != chars.head
+
+      val storedEl = res.filter(ourEl)
+      def getNewEl(): List[(Char, Int)] =
+        if (storedEl.isEmpty) {
+          List((chars.head, 1))
+        } else {
+          List((chars.head, storedEl.head._2 + 1))
+        }
+
+      getNewEl() ::: res.filter(otherEl)
+    }
+
+  }
 
   /**
    * Returns a list of `Leaf` nodes for a given frequency table `freqs`.
