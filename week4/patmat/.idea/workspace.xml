@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5898ffa3-721b-4017-a686-8e96ec8125f4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/asubb.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/patmat/Huffman.scala" afterPath="$PROJECT_DIR$/src/main/scala/patmat/Huffman.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/patmat/HuffmanSuite.scala" afterPath="$PROJECT_DIR$/src/test/scala/patmat/HuffmanSuite.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sbt.xml" afterPath="$PROJECT_DIR$/.idea/sbt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="progfun-patmat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,8 +69,8 @@
       <file leaf-file-name="Huffman.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/patmat/Huffman.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2556" max-vertical-offset="4860">
-              <caret line="151" column="40" selection-start-line="151" selection-start-column="40" selection-end-line="151" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2757" max-vertical-offset="5040">
+              <caret line="186" column="51" selection-start-line="186" selection-start-column="51" selection-end-line="186" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -82,8 +79,8 @@
       <file leaf-file-name="HuffmanSuite.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/scala/patmat/HuffmanSuite.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7740586" vertical-offset="345" max-vertical-offset="1134">
-              <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.8423989" vertical-offset="368" max-vertical-offset="1242">
+              <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -153,7 +150,7 @@
     <property name="LayoutCode.rearrangeEntriesScala" value="false" />
     <property name="FullScreen" value="false" />
   </component>
-  <component name="RunManager" selected="ScalaTest.HuffmanSuite.combine of some leaf list">
+  <component name="RunManager" selected="ScalaTest.HuffmanSuite.until">
     <configuration default="false" name="HuffmanSuite" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <extension name="scalaCoverage" />
@@ -199,6 +196,23 @@
       <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
       <setting name="searchForTest" value="Across module dependencies" />
       <setting name="testName" value="combine of some leaf list" />
+      <setting name="testKind" value="Test name" />
+      <setting name="showProgressMessages" value="true" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="HuffmanSuite.until" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <extension name="scalaCoverage" />
+      <module name="assignment" />
+      <setting name="path" value="patmat.HuffmanSuite" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="until" />
       <setting name="testKind" value="Test name" />
       <setting name="showProgressMessages" value="true" />
       <RunnerSettings RunnerId="Run" />
@@ -338,16 +352,18 @@
       <setting name="showProgressMessages" value="true" />
       <method />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="ScalaTest.HuffmanSuite" />
       <item index="1" class="java.lang.String" itemvalue="ScalaTest.HuffmanSuite.times" />
       <item index="2" class="java.lang.String" itemvalue="ScalaTest.HuffmanSuite.combine of some leaf list" />
+      <item index="3" class="java.lang.String" itemvalue="ScalaTest.HuffmanSuite.until" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="ScalaTest.HuffmanSuite.combine of some leaf list" />
-        <item index="1" class="java.lang.String" itemvalue="ScalaTest.HuffmanSuite" />
-        <item index="2" class="java.lang.String" itemvalue="ScalaTest.HuffmanSuite.times" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="ScalaTest.HuffmanSuite.until" />
+        <item index="1" class="java.lang.String" itemvalue="ScalaTest.HuffmanSuite.combine of some leaf list" />
+        <item index="2" class="java.lang.String" itemvalue="ScalaTest.HuffmanSuite" />
+        <item index="3" class="java.lang.String" itemvalue="ScalaTest.HuffmanSuite.times" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
@@ -413,12 +429,12 @@
       <updated>1400831702832</updated>
       <workItem from="1400831706324" duration="8740000" />
       <workItem from="1400842402952" duration="1990000" />
-      <workItem from="1400944899623" duration="1338000" />
+      <workItem from="1400944899623" duration="1940000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12068000" />
+    <option name="totallyTimeSpent" value="12670000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="17" width="1614" height="890" extended-state="0" />
@@ -440,7 +456,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25322166" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.47290322" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.47290322" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
@@ -540,16 +556,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/patmat/Huffman.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2556" max-vertical-offset="4860">
-          <caret line="151" column="40" selection-start-line="151" selection-start-column="40" selection-end-line="151" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2757" max-vertical-offset="5040">
+          <caret line="186" column="51" selection-start-line="186" selection-start-column="51" selection-end-line="186" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/patmat/HuffmanSuite.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7740586" vertical-offset="345" max-vertical-offset="1134">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.8423989" vertical-offset="368" max-vertical-offset="1242">
+          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
           <folding />
         </state>
       </provider>
