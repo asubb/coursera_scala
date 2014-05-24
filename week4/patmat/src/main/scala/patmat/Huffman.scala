@@ -212,17 +212,22 @@ object Huffman {
    */
   def decode(tree: CodeTree, bits: List[Bit]): List[Char] = {
     def doDecode(seq: List[Bit], subtree: CodeTree, decoded: List[Char]): List[Char] = {
-      if (seq.isEmpty) {
-        decoded;
-      } else {
-        subtree match {
-          case Leaf(char, _) => doDecode(seq, tree, decoded ::: List(char))
-          case Fork(left, right, _, _) =>
-            seq.head match {
-              case 0 => doDecode(seq.tail, left, decoded)
-              case 1 => doDecode(seq.tail, right, decoded)
-            }
+      subtree match {
+        case Leaf(char, _) => {
+          if (!seq.isEmpty)
+            doDecode(seq, tree, decoded ::: List(char))
+          else
+            decoded ::: List(char)
         }
+        case Fork(left, right, _, _) =>
+          if (seq.isEmpty) {
+            throw new IllegalStateException("Bit sequence is wrong, it should end with" +
+              " the leaf [bits=" + bits + ", tree=" + tree + "]")
+          }
+          seq.head match {
+            case 0 => doDecode(seq.tail, left, decoded)
+            case 1 => doDecode(seq.tail, right, decoded)
+          }
       }
     }
     doDecode(bits, tree, List())
@@ -254,7 +259,44 @@ object Huffman {
    * This function encodes `text` using the code tree `tree`
    * into a sequence of bits.
    */
-  def encode(tree: CodeTree)(text: List[Char]): List[Bit] = ???
+  def encode(tree: CodeTree)(text: List[Char]): List[Bit] = {
+    def doEncodeChar(char: Char, subtree: CodeTree, bits: List[Bit]): List[Bit] = {
+      subtree match {
+        case Leaf(ch, _) => {
+          if (char == ch)
+            bits
+          else
+            Nil // the way is wrong
+        }
+        case Fork(left, right, chars, _) => {
+          if (chars.contains(char)) {
+            val tryGoLeft = doEncodeChar(char, left, bits ::: List(0))
+            if (tryGoLeft == Nil) {
+              val tryGoRight = doEncodeChar(char, right, bits ::: List(1))
+              if (tryGoRight == Nil) {
+                throw new IllegalStateException("CodeTree is wrong, contents of fork '" + subtree + "' has to contain char '" + char + "'")
+              } else {
+                tryGoRight
+              }
+            } else {
+              tryGoLeft
+            }
+          } else {
+            Nil // the way is wrong
+          }
+        }
+      }
+    }
+    def doEncode(chars: List[Char], bits: List[Bit]): List[Bit] = {
+      if (chars.isEmpty) {
+        bits
+      } else {
+        val encodedChar: List[Bit] = doEncodeChar(chars.head, tree, List())
+        doEncode(chars.tail, bits ::: encodedChar)
+      }
+    }
+    doEncode(text, List())
+  }
 
 
   // Part 4b: Encoding using code table
