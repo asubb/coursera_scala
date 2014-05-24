@@ -106,12 +106,23 @@ object Huffman {
    * head of the list should have the smallest weight), where the weight
    * of a leaf is the frequency of the character.
    */
-  def makeOrderedLeafList(freqs: List[(Char, Int)]): List[Leaf] = ???
+  def makeOrderedLeafList(freqs: List[(Char, Int)]): List[Leaf] = {
+    def createList(freqs: List[(Char, Int)]): List[Leaf] = {
+      if (!freqs.isEmpty) {
+        val res = createList(freqs.tail)
+        new Leaf(freqs.head._1, freqs.head._2) :: res
+      } else {
+        Nil
+      }
+    }
+
+    createList(freqs).sortBy(f => f.weight)
+  }
 
   /**
    * Checks whether the list `trees` contains only one single code tree.
    */
-  def singleton(trees: List[CodeTree]): Boolean = ???
+  def singleton(trees: List[CodeTree]): Boolean = trees.size == 1
 
   /**
    * The parameter `trees` of this function is a list of code trees ordered
@@ -125,7 +136,28 @@ object Huffman {
    * If `trees` is a list of less than two elements, that list should be returned
    * unchanged.
    */
-  def combine(trees: List[CodeTree]): List[CodeTree] = ???
+  def combine(trees: List[CodeTree]): List[CodeTree] = {
+    if (trees.size < 2) {
+      trees
+    } else {
+      val leaf1: CodeTree = trees.head;
+      val leaf2: CodeTree = trees.tail.head;
+
+      leaf1 match {
+        case Leaf(char1, w1) =>
+          leaf2 match {
+            case Leaf(char2, w2) => List(new Fork(leaf1, leaf2, List(char1, char2), w1 + w2)) ::: trees.tail.tail
+            case _ => throw new IllegalStateException("What we are doing here? leaf2 should be only leaf")
+          }
+        case Fork(left, right, chars, w1) =>
+          leaf2 match {
+            case Leaf(char2, w2) => List(new Fork(leaf1, leaf2, chars ::: List(char2), w1 + w2))
+            case _ => throw new IllegalStateException("What we are doing here? leaf2 should be only leaf")
+          }
+      }
+
+    }
+  }
 
   /**
    * This function will be called in the following way:
