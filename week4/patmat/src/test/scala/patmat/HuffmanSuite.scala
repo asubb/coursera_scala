@@ -85,6 +85,22 @@ class HuffmanSuite extends FunSuite {
     }
   }
 
+  test("codeBits") {
+    assert(codeBits(List(
+      ('a', List(0)),
+      ('b', List(1))
+    ))('a') === List(0))
+    assert(codeBits(List(
+      ('a', List(0)),
+      ('b', List(1))
+    ))('b') === List(1))
+    assert(codeBits(List(
+      ('a', List(0, 0)),
+      ('b', List(0, 1)),
+      ('d', List(1))
+    ))('b') === List(0, 1))
+  }
+
   test("convert") {
     new TestTrees {
       assert(convert(t1) === List(
@@ -96,6 +112,15 @@ class HuffmanSuite extends FunSuite {
         ('b', List(0, 1)),
         ('d', List(1))
       ))
+    }
+  }
+
+  test("decode and quickEncode text should be identity") {
+    new TestTrees {
+      assert(decode(t1, quickEncode(t1)("ab".toList)) === "ab".toList)
+      assert(decode(t1, quickEncode(t1)("abbbbabababa".toList)) === "abbbbabababa".toList)
+      assert(decode(t2, quickEncode(t2)("abbabbadddbbdaabba".toList)) === "abbabbadddbbdaabba".toList)
+      assert(quickEncode(frenchCode)(decode(frenchCode, secret)) === secret)
     }
   }
 

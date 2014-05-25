@@ -307,7 +307,18 @@ object Huffman {
    * This function returns the bit sequence that represents the character `char` in
    * the code table `table`.
    */
-  def codeBits(table: CodeTable)(char: Char): List[Bit] = ???
+  def codeBits(table: CodeTable)(char: Char): List[Bit] = {
+    def doCodeBits(subtable: CodeTable): List[Bit] = {
+      if (subtable.isEmpty) {
+        throw new NoSuchElementException("[Char=" + char + ", codeTable=" + subtable)
+      } else if (subtable.head._1 == char) {
+        subtable.head._2
+      } else {
+        doCodeBits(subtable.tail)
+      }
+    }
+    doCodeBits(table)
+  }
 
   /**
    * Given a code tree, create a code table which contains, for every character in the
@@ -322,7 +333,7 @@ object Huffman {
       subTree match {
         case Leaf(ch, _) => codeTable ::: List((ch, path))
         case Fork(left, right, _, _) => {
-          doConvert(left, codeTable, path ::: List(0)) ::: doConvert(right, codeTable, path ::: List(1))
+          mergeCodeTables(doConvert(left, codeTable, path ::: List(0)), doConvert(right, codeTable, path ::: List(1)))
         }
       }
     }
@@ -334,7 +345,9 @@ object Huffman {
    * use it in the `convert` method above, this merge method might also do some transformations
    * on the two parameter code tables.
    */
-  def mergeCodeTables(a: CodeTable, b: CodeTable): CodeTable = ???
+  def mergeCodeTables(a: CodeTable, b: CodeTable): CodeTable = {
+    a ::: b
+  }
 
   /**
    * This function encodes `text` according to the code tree `tree`.
@@ -342,5 +355,15 @@ object Huffman {
    * To speed up the encoding process, it first converts the code tree to a code table
    * and then uses it to perform the actual encoding.
    */
-  def quickEncode(tree: CodeTree)(text: List[Char]): List[Bit] = ???
+  def quickEncode(tree: CodeTree)(text: List[Char]): List[Bit] = {
+    val codeTable = convert(tree);
+    def doEncode(chars: List[Char], bits: List[Bit]): List[Bit] = {
+      if (chars.isEmpty) {
+        bits
+      } else {
+        doEncode(chars.tail, bits ::: codeBits(codeTable)(chars.head))
+      }
+    }
+    doEncode(text, List())
+  }
 }
